@@ -1,6 +1,6 @@
 # Serverless Employee Management System
 
-A serverless Employee Management System (EMS) built using AWS Lambda, API Gateway, AWS S3, MongoDB Atlas, and AWS Cognito for authentication and authorization. This project demonstrates how to create, read, update, and delete employee records in a serverless architecture with secure access control.
+A serverless Employee Management System (EMS) built using AWS Lambda, API Gateway, AWS S3 and MongoDB Atlas. This project demonstrates how to create, read, update, and delete employee records in a serverless architecture with secure access control.
 
 
 ## Features
