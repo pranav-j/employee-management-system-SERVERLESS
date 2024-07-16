@@ -1,0 +1,77 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: kidiloski
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: ems-sls-1
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+  region: ap-south-1
+  environment:
+    MONGODB_URI: ${env:MONGODB_URI}
+
+custom:
+  deploymentBucket:
+    maxConcurrentUploads: 1
+
+	
+# plugins:
+#   - serverless-plugin-common-excludes
+#   - serverless-plugin-include-dependencies
+  
+functions:
+  home:
+    handler: handler.home
+    events:
+      - httpApi:
+          path: /
+          method: GET
+
+  # hello:
+  #   handler: handler.hello
+  #   events:
+  #     - httpApi:
+  #         path: /hello
+  #         method: GET
+
+  addEmployee:
+    handler: handler.addEmployee
+    events:
+      - httpApi:
+          path: /addEmployee
+          method: POST
+
+  imgUpload:
+    handler: handler.imgUpload
+    events:
+      - httpApi:
+          path: /empImg/{id}
+          method: POST
+
+  deleteEmployee:
+    handler: handler.deleteEmployee
+    events:
+      - httpApi:
+          path: /deleteEmployee/{id}
+          method: DELETE
+
+  editEmployeeView:
+    handler: handler.editEmployeeView
+    events:
+      - httpApi:
+          path: /editEmployee/{id}
+          method: GET
+
+  editEmployeeSave:
+    handler: handler.editEmployeeSave
+    events:
+      - httpApi:
+          path: /editEmployee/{id}
+          method: PUT
+
+  empDetails:
+    handler: handler.empDetails
+    events:
+      - httpApi:
+          path: /employeeDetails/{id}
+          method: GET
